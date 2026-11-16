@@ -4,6 +4,36 @@ Django app of the Knowledge Graph Generator (TPSE 2026/27, TU Darmstadt): a thin
 
 How we work (shared by all repos): [process](https://github.com/tpse2627-kgg/kgg-core/blob/develop/docs/process/process.md)
 
+## Setup and run
+
+Requires Python 3.11+ and Git.
+
+```
+git clone https://github.com/tpse2627-kgg/kgg-django.git
+cd kgg-django
+python3 -m venv .venv          # Windows: python -m venv .venv
+```
+
+Activate the virtual environment (in every new terminal):
+
+- Windows (PowerShell): `.venv\Scripts\Activate.ps1`
+- Linux/macOS: `source .venv/bin/activate`
+
+Install the dependencies (Django and kgg-core) and start the server:
+
+```
+pip install -r requirements.txt
+python manage.py runserver
+```
+
+In a second terminal, check that the server is running:
+
+```
+curl localhost:8000/health     # Windows PowerShell: curl.exe localhost:8000/health
+```
+
+This should return `{"status": "ok"}`.
+
 ## Branching
 
 We use [git-flow](https://nvie.com/posts/a-successful-git-branching-model/) (to be confirmed by the team):
