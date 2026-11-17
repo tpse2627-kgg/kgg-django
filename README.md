@@ -6,7 +6,7 @@ How we work (shared by all repos): [process](https://github.com/tpse2627-kgg/kgg
 
 ## Setup and run
 
-Requires Python 3.11+ and Git.
+Requires Python 3.12+ and Git.
 
 ```
 git clone https://github.com/tpse2627-kgg/kgg-django.git
@@ -19,10 +19,11 @@ Activate the virtual environment (in every new terminal):
 - Windows (PowerShell): `.venv\Scripts\Activate.ps1`
 - Linux/macOS: `source .venv/bin/activate`
 
-Install the dependencies (Django and kgg-core) and start the server:
+Install the dependencies (Django and kgg-core), create the database and start the server:
 
 ```
 pip install -r requirements.txt
+python manage.py migrate
 python manage.py runserver
 ```
 
@@ -33,6 +34,14 @@ curl localhost:8000/health     # Windows PowerShell: curl.exe localhost:8000/hea
 ```
 
 This should return `{"status": "ok"}`.
+
+Run the tests with:
+
+```
+python manage.py test
+```
+
+On a server, set the environment variables `DJANGO_SECRET_KEY` (a secret random value) and `DJANGO_DEBUG=false`. Without them, development defaults are used.
 
 ## Branching
 
