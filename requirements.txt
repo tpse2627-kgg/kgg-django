@@ -1,0 +1,2 @@
+Django~=6.1
+kgg-core @ git+https://github.com/tpse2627-kgg/kgg-core.git@develop#subdirectory=core
